@@ -48,3 +48,9 @@ h1 {
   height: 10px;
   background-color: #4aa3df;
 }
+
+.pump.on {
+  background-color: #4caf50;
+  color: white;
+  border-color: #2e7d32;
+}
