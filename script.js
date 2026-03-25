@@ -1,6 +1,6 @@
 let pumpOn = false;
 let flowRate = 0;
-let reservoirVolume = 50;
+let reservoirVolume = 30;
 
 const togglePumpButton = document.getElementById("togglePump");
 const flowDisplay = document.getElementById("flowDisplay");
@@ -45,4 +45,4 @@ setInterval(function () {
     flowDisplay.textContent = `Flow: 0 L/min`;
     togglePumpButton.textContent = "Turn Pump On";
   }
-}, 1000);
+}, 2000);
