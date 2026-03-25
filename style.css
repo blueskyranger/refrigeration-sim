@@ -44,6 +44,10 @@ h1 {
   font-weight: bold;
 }
 
+#reservoirLevel {
+  margin-top: 4px;
+}
+
 .pipe {
   width: 100px;
   height: 10px;
