@@ -6,6 +6,7 @@ const flowDisplay = document.getElementById("flowDisplay");
 const pumpBox = document.getElementById("pumpBox");
 const pipe = document.getElementById("pipe");
 
+//------Button and pump logic-----
 togglePumpButton.addEventListener("click", function () {
   pumpOn = !pumpOn;
 
