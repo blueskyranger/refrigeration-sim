@@ -45,4 +45,4 @@ setInterval(function () {
     flowDisplay.textContent = `Flow: 0 L/min`;
     togglePumpButton.textContent = "Turn Pump On";
   }
-}, 2000);
+}, 500);
