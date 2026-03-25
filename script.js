@@ -36,4 +36,13 @@ setInterval(function () {
 
     reservoirLevel.textContent = `${reservoirVolume} L`;
   }
+   // PIPE Animation - if empty, stop flow
+  if (reservoirVolume === 0) {
+    pipe.classList.remove("flow");
+    pumpBox.classList.remove("on");
+    pumpOn = false;
+    flowRate = 0;
+    flowDisplay.textContent = `Flow: 0 L/min`;
+    togglePumpButton.textContent = "Turn Pump On";
+  }
 }, 1000);
