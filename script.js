@@ -8,7 +8,6 @@ const pumpBox = document.getElementById("pumpBox");
 const pipe = document.getElementById("pipe");
 const reservoirLevel = document.getElementById("reservoirLevel");
 
-//------Button and pump logic-----
 togglePumpButton.addEventListener("click", function () {
   pumpOn = !pumpOn;
 
