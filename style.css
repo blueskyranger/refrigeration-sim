@@ -49,6 +49,7 @@ h1 {
   background-color: #4aa3df;
 }
 
+//-----Pipe animation------
 .pipe.flow {
   background: repeating-linear-gradient(
     90deg,
