@@ -12,7 +12,7 @@ togglePumpButton.addEventListener("click", function () {
   pumpOn = !pumpOn;
 
  if (pumpOn) {
-    flowRate = 20;
+    flowRate = 1;
     togglePumpButton.textContent = "Turn Pump Off";
     pumpBox.classList.add("on");
     pipe.classList.add("flow");
