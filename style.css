@@ -49,6 +49,26 @@ h1 {
   background-color: #4aa3df;
 }
 
+.pipe.flow {
+  background: repeating-linear-gradient(
+    90deg,
+    #4aa3df,
+    #4aa3df 10px,
+    #1e88e5 10px,
+    #1e88e5 20px
+  );
+  animation: flowAnimation 1s linear infinite;
+}
+
+@keyframes flowAnimation {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 0;
+  }
+}
+
 .pump.on {
   background-color: #4caf50;
   color: white;
