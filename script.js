@@ -5,8 +5,15 @@ let reservoirVolume = 30;
 const togglePumpButton = document.getElementById("togglePump");
 const flowDisplay = document.getElementById("flowDisplay");
 const pumpBox = document.getElementById("pumpBox");
-const pipe = document.getElementById("pipe");
+const topPipe = document.getElementById("topPipe");
+const rightPipe = document.getElementById("rightPipe");
+const bottomPipe = document.getElementById("bottomPipe");
+const leftPipe = document.getElementById("leftPipe");
 const reservoirLevel = document.getElementById("reservoirLevel");
+
+let pumpOn = false;
+let flowRate = 0;
+let reservoir = 100;
 
 togglePumpButton.addEventListener("click", function () {
   pumpOn = !pumpOn;
@@ -14,13 +21,19 @@ togglePumpButton.addEventListener("click", function () {
  if (pumpOn) {
     flowRate = 2;
     togglePumpButton.textContent = "Turn Pump Off";
-    pumpBox.classList.add("on");
-    pipe.classList.add("flow");
+    topPipe.classList.add("flowing");
+    rightPipe.classList.add("flowing");
+    bottomPipe.classList.add("flowing");
+    leftPipe.classList.add("flowing");
   } else {
+    pumpOn = false;
     flowRate = 0;
-    togglePumpButton.textContent = "Turn Pump On";
-    pumpBox.classList.remove("on");
-    pipe.classList.remove("flow");
+    togglePumpBtn.textContent = "Turn Pump On";
+
+    topPipe.classList.remove("flowing");
+    rightPipe.classList.remove("flowing");
+    bottomPipe.classList.remove("flowing");
+    leftPipe.classList.remove("flowing");
   }
 
   flowDisplay.textContent = `Flow: ${flowRate} L/min`;
@@ -44,5 +57,9 @@ setInterval(function () {
     flowRate = 0;
     flowDisplay.textContent = `Flow: 0 L/min`;
     togglePumpButton.textContent = "Turn Pump On";
+    topPipe.classList.remove("flowing");
+    rightPipe.classList.remove("flowing");
+    bottomPipe.classList.remove("flowing");
+    leftPipe.classList.remove("flowing");
   }
 }, 500);
