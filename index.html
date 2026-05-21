@@ -16,14 +16,18 @@
 
   <div class="system">
   <div class="component reservoir" id="reservoirBox">
-    Reservoir<br>
-    <span id="reservoirLevel">100 L</span>
+    <div class="reservoir-label">Reservoir</div>
+    <div class="reservoir-tank">
+      <div class="reservoir-fill" id="reservoirFill"></div>
+      <span id="reservoirLevel">100 L</span>
+    </div>
   </div>
 
   <div class="pipe top-pipe" id="topPipe"></div>
 
   <div class="component pump" id="pumpBox">
-    Pump
+    <div class="pump-spinner" id="pumpSpinner"></div>
+    <span class="pump-label">Pump</span>
   </div>
 
   <div class="pipe right-pipe" id="rightPipe"></div>
