@@ -206,23 +206,23 @@ h1 {
 
 .right-pipe {
   left: 620px;
-  top: 190px;
+  top: 170px;
   width: 20px;
-  height: 120px;
+  height: 80px;
 }
 
 .bottom-pipe {
   left: 160px;
-  top: 290px;
+  top: 250px;
   width: 460px;
   height: 20px;
 }
 
 .left-pipe {
   left: 160px;
-  top: 190px;
+  top: 170px;
   width: 20px;
-  height: 120px;
+  height: 80px;
 }
 
 /* === Flowing state === */

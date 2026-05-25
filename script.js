@@ -52,15 +52,15 @@ togglePumpBtn.addEventListener("click", () => {
 });
 
 setInterval(() => {
-  if (pumpOn && reservoir > 0) {
-    reservoir--;
-    if (reservoir < 0) reservoir = 0;
+  if (pumpOn) {
+    if (reservoir > 0) {
+      reservoir--;
+    } else {
+      // Closed loop — reservoir refills automatically as fluid returns
+      reservoir = 100;
+    }
 
     reservoirLevel.textContent = `${reservoir} L`;
     reservoirFill.style.height = `${reservoir}%`;
-
-    if (reservoir === 0) {
-      stopPump();
-    }
   }
 }, 1000);
