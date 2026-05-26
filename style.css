@@ -352,47 +352,6 @@ h1 {
   font-family: monospace;
 }
 
-/* ===================== Metering Device ===================== */
-/* Component box on the liquid line — creates pressure drop high→low side */
-.metering-device {
-  width: 80px;
-  height: 60px;
-  left: 550px;   /* centre x=590, on the bottom pipe closer to evaporator */
-  top: 365px;    /* centre y=395, aligned with bottom pipe centre */
-  flex-direction: column;
-  gap: 2px;
-  background: #1a2e1a;
-  border-color: #388e3c;
-  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
-}
-
-.metering-device.active {
-  background: #1b3a1b;
-  border-color: #66bb6a;
-  box-shadow: 0 0 14px rgba(102, 187, 106, 0.5);
-}
-
-.metering-label {
-  font-size: 9px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #66bb6a;
-}
-
-.metering-device.active .metering-label {
-  color: #a5d6a7;
-}
-
-.metering-icon {
-  font-size: 18px;
-  color: #388e3c;
-  line-height: 1;
-}
-
-.metering-device.active .metering-icon {
-  color: #81c784;
-}
 
 /* ===================== Cool Air Zone ===================== */
 /* Animated cool-air stream flowing left out of the indoor unit */
@@ -448,15 +407,13 @@ h1 {
   height: 155px;
 }
 
-/* Reservoir (left) → Metering Device → Evaporator (right)  :  flows RIGHT */
-/* Split into two segments either side of the metering device box */
+/* Reservoir (left) → Evaporator (right)  :  flows RIGHT */
 .bottom-pipe {
+  left: 180px;
   top: 385px;
+  width: 630px;
   height: 20px;
 }
-
-#bottomPipeLeft  { left: 180px; width: 370px; } /* receiver  → metering device */
-#bottomPipeRight { left: 630px; width: 180px; } /* metering device → evaporator */
 
 /* Condenser bottom → Reservoir top  :  flows DOWN */
 .left-pipe {
