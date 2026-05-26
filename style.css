@@ -488,7 +488,7 @@ h1 {
 /* Directional animations */
 .top-pipe.flowing    { animation: flowLeft  0.6s linear infinite; }
 .bottom-pipe.flowing { animation: flowRight 0.6s linear infinite; }
-.right-pipe.flowing  { animation: flowDown  0.6s linear infinite; }
+.right-pipe.flowing  { animation: flowUp    0.6s linear infinite; }
 .left-pipe.flowing   { animation: flowDown  0.6s linear infinite; }
 
 @keyframes flowRight { from { background-position: 0 0; } to { background-position:  24px 0; } }
@@ -527,9 +527,9 @@ h1 {
   border-right: 7px solid transparent;
 }
 
-/* right pipe flows DOWN ↓ */
-.right-pipe::after         { border-top: 11px solid rgba(255,255,255,0.25); }
-.right-pipe.flowing::after { border-top-color: rgba(255,255,255,0.85); }
+/* right pipe flows UP ↑ */
+.right-pipe::after         { border-bottom: 11px solid rgba(255,255,255,0.25); }
+.right-pipe.flowing::after { border-bottom-color: rgba(255,255,255,0.85); }
 
 /* left pipe flows DOWN ↓ */
 .left-pipe::after         { border-top: 11px solid rgba(255,255,255,0.25); }
