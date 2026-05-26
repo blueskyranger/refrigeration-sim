@@ -15,10 +15,11 @@ const condenserTempDisplay = document.getElementById("condenserTempDisplay");
 const indoorTempDisplay    = document.getElementById("indoorTempDisplay");
 const reservoirStatusDisplay = document.getElementById("reservoirStatusDisplay");
 
-const topPipe    = document.getElementById("topPipe");
-const rightPipe  = document.getElementById("rightPipe");
-const bottomPipe = document.getElementById("bottomPipe");
-const leftPipe   = document.getElementById("leftPipe");
+const topPipe         = document.getElementById("topPipe");
+const rightPipe       = document.getElementById("rightPipe");
+const bottomPipeLeft  = document.getElementById("bottomPipeLeft");
+const bottomPipeRight = document.getElementById("bottomPipeRight");
+const leftPipe        = document.getElementById("leftPipe");
 
 // ── Refrigerant system constants ─────────────────────────────────
 const AMBIENT        = 22;    // °C  — ambient / resting temperature
@@ -78,7 +79,8 @@ function setPipesFlowing(on) {
   const m = on ? "add" : "remove";
   topPipe.classList[m]("flowing");
   rightPipe.classList[m]("flowing");
-  bottomPipe.classList[m]("flowing");
+  bottomPipeLeft.classList[m]("flowing");
+  bottomPipeRight.classList[m]("flowing");
   leftPipe.classList[m]("flowing");
 }
 

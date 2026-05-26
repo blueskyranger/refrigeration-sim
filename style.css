@@ -353,54 +353,45 @@ h1 {
 }
 
 /* ===================== Metering Device ===================== */
-/* Small circle on the liquid line — separates high side from low side */
+/* Component box on the liquid line — creates pressure drop high→low side */
 .metering-device {
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  left: 636px;   /* centres on x=650, roughly 2/3 along the bottom pipe */
-  top: 381px;    /* centres on pipe centre-y (395px) */
-  border-radius: 50%;
-  border: 2px solid #4a6278;
-  background: #2c3e50;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+  width: 80px;
+  height: 60px;
+  left: 550px;   /* centre x=590, on the bottom pipe closer to evaporator */
+  top: 365px;    /* centre y=395, aligned with bottom pipe centre */
+  flex-direction: column;
+  gap: 2px;
+  background: #1a2e1a;
+  border-color: #388e3c;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
 .metering-device.active {
-  background: #012a45;
-  border-color: #0288d1;
-  box-shadow: 0 0 12px rgba(2, 136, 209, 0.6);
+  background: #1b3a1b;
+  border-color: #66bb6a;
+  box-shadow: 0 0 14px rgba(102, 187, 106, 0.5);
+}
+
+.metering-label {
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #66bb6a;
+}
+
+.metering-device.active .metering-label {
+  color: #a5d6a7;
 }
 
 .metering-icon {
-  font-size: 10px;
-  font-weight: bold;
-  color: #546e7a;
+  font-size: 18px;
+  color: #388e3c;
   line-height: 1;
 }
 
 .metering-device.active .metering-icon {
-  color: #4fc3f7;
-}
-
-.metering-label-text {
-  position: absolute;
-  left: 614px;
-  top: 413px;
-  font-size: 8px;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #546e7a;
-  text-align: center;
-  line-height: 1.4;
-  pointer-events: none;
+  color: #81c784;
 }
 
 /* ===================== Cool Air Zone ===================== */
@@ -457,13 +448,15 @@ h1 {
   height: 155px;
 }
 
-/* Reservoir (left) → Indoor Unit (right)  :  flows RIGHT */
+/* Reservoir (left) → Metering Device → Evaporator (right)  :  flows RIGHT */
+/* Split into two segments either side of the metering device box */
 .bottom-pipe {
-  left: 180px;
   top: 385px;
-  width: 630px;
   height: 20px;
 }
+
+#bottomPipeLeft  { left: 180px; width: 370px; } /* receiver  → metering device */
+#bottomPipeRight { left: 630px; width: 180px; } /* metering device → evaporator */
 
 /* Condenser bottom → Reservoir top  :  flows DOWN */
 .left-pipe {
