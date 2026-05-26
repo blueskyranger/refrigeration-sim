@@ -6,6 +6,7 @@ const reservoirFill        = document.getElementById("reservoirFill");
 const pumpBox              = document.getElementById("pumpBox");
 const condenserBox         = document.getElementById("condenserBox");
 const indoorUnitBox        = document.getElementById("indoorUnitBox");
+const meteringDevice       = document.getElementById("meteringDevice");
 const coolAirZone          = document.getElementById("coolAirZone");
 
 const highPressureDisplay  = document.getElementById("highPressureDisplay");
@@ -86,6 +87,7 @@ function setComponentsActive(on) {
   pumpBox.classList[m]("active");
   condenserBox.classList[m]("active");
   indoorUnitBox.classList[m]("active");
+  meteringDevice.classList[m]("active");
   coolAirZone.classList[m]("active");
   togglePumpBtn.classList[m]("active");
 }
