@@ -14,6 +14,33 @@
     <p id="flowDisplay">Flow: 0 L/min</p>
   </div>
 
+  <div class="status-bar">
+    <div class="gauge">
+      <div class="gauge-label">High Side</div>
+      <div class="gauge-value warm" id="highPressureDisplay">5.5 bar</div>
+    </div>
+    <div class="gauge-divider"></div>
+    <div class="gauge">
+      <div class="gauge-label">Low Side</div>
+      <div class="gauge-value cool" id="lowPressureDisplay">5.5 bar</div>
+    </div>
+    <div class="gauge-divider"></div>
+    <div class="gauge">
+      <div class="gauge-label">Condenser</div>
+      <div class="gauge-value warm" id="condenserTempDisplay">22°C</div>
+    </div>
+    <div class="gauge-divider"></div>
+    <div class="gauge">
+      <div class="gauge-label">Indoor Unit</div>
+      <div class="gauge-value cool" id="indoorTempDisplay">22°C</div>
+    </div>
+    <div class="gauge-divider"></div>
+    <div class="gauge">
+      <div class="gauge-label">Reservoir</div>
+      <div class="gauge-value" id="reservoirStatusDisplay">IDLE</div>
+    </div>
+  </div>
+
   <div class="system">
 
     <div class="component condenser" id="condenserBox">

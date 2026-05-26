@@ -53,6 +53,53 @@ h1 {
   border: 1px solid #2c3e50;
 }
 
+/* ===================== Status Bar ===================== */
+.status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid #2c3e50;
+  border-radius: 8px;
+  padding: 10px 28px;
+  width: fit-content;
+  gap: 0;
+}
+
+.gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 22px;
+}
+
+.gauge-label {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #546e7a;
+  margin-bottom: 5px;
+}
+
+.gauge-value {
+  font-size: 15px;
+  font-family: monospace;
+  font-weight: bold;
+  color: #cfd8dc;
+  transition: color 0.5s;
+}
+
+.gauge-value.warm { color: #ff8a65; }
+.gauge-value.cool { color: #4fc3f7; }
+
+.gauge-divider {
+  width: 1px;
+  height: 36px;
+  background: #2c3e50;
+  flex-shrink: 0;
+}
+
 .system {
   position: relative;
   width: 1000px;
