@@ -6,6 +6,7 @@ const reservoirFill        = document.getElementById("reservoirFill");
 const pumpBox              = document.getElementById("pumpBox");
 const condenserBox         = document.getElementById("condenserBox");
 const indoorUnitBox        = document.getElementById("indoorUnitBox");
+const meteringDevice       = document.getElementById("meteringDevice");
 const coolAirZone          = document.getElementById("coolAirZone");
 
 const highPressureDisplay  = document.getElementById("highPressureDisplay");
@@ -14,10 +15,11 @@ const condenserTempDisplay = document.getElementById("condenserTempDisplay");
 const indoorTempDisplay    = document.getElementById("indoorTempDisplay");
 const reservoirStatusDisplay = document.getElementById("reservoirStatusDisplay");
 
-const topPipe    = document.getElementById("topPipe");
-const rightPipe  = document.getElementById("rightPipe");
-const bottomPipe = document.getElementById("bottomPipe");
-const leftPipe   = document.getElementById("leftPipe");
+const topPipe         = document.getElementById("topPipe");
+const rightPipe       = document.getElementById("rightPipe");
+const bottomPipeLeft  = document.getElementById("bottomPipeLeft");
+const bottomPipeRight = document.getElementById("bottomPipeRight");
+const leftPipe        = document.getElementById("leftPipe");
 
 // ── Refrigerant system constants ─────────────────────────────────
 const AMBIENT        = 22;    // °C  — ambient / resting temperature
@@ -77,7 +79,8 @@ function setPipesFlowing(on) {
   const m = on ? "add" : "remove";
   topPipe.classList[m]("flowing");
   rightPipe.classList[m]("flowing");
-  bottomPipe.classList[m]("flowing");
+  bottomPipeLeft.classList[m]("flowing");
+  bottomPipeRight.classList[m]("flowing");
   leftPipe.classList[m]("flowing");
 }
 
@@ -86,6 +89,7 @@ function setComponentsActive(on) {
   pumpBox.classList[m]("active");
   condenserBox.classList[m]("active");
   indoorUnitBox.classList[m]("active");
+  meteringDevice.classList[m]("active");
   coolAirZone.classList[m]("active");
   togglePumpBtn.classList[m]("active");
 }
