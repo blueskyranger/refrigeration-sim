@@ -3,37 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gas Circuit Simulator</title>
+  <title>Refrigeration Cycle Simulator</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Gas Circuit Simulator</h1>
+  <h1>Refrigeration Cycle Simulator</h1>
 
   <div class="controls">
-    <button id="togglePump">Turn Pump On</button>
+    <button id="togglePump">Start Compressor</button>
     <p id="flowDisplay">Flow: 0 L/min</p>
   </div>
 
   <div class="system">
-  <div class="component reservoir" id="reservoirBox">
-    <div class="reservoir-label">Reservoir</div>
-    <div class="reservoir-tank">
-      <div class="reservoir-fill" id="reservoirFill"></div>
-      <span id="reservoirLevel">100 L</span>
+
+    <div class="component condenser" id="condenserBox">
+      <span class="condenser-label">Condenser</span>
+      <div class="condenser-icon">♨</div>
+      <span class="component-sublabel">Heat Release</span>
     </div>
+
+    <div class="component pump" id="pumpBox">
+      <div class="pump-spinner" id="pumpSpinner"></div>
+      <span class="pump-label">Compressor</span>
+    </div>
+
+    <div class="component evaporator" id="evaporatorBox">
+      <span class="evaporator-label">Evaporator</span>
+      <div class="evaporator-icon">❄</div>
+      <span class="component-sublabel">Heat Absorption</span>
+    </div>
+
+    <div class="component reservoir" id="reservoirBox">
+      <div class="reservoir-label">Reservoir</div>
+      <div class="reservoir-tank">
+        <div class="reservoir-fill" id="reservoirFill"></div>
+        <span id="reservoirLevel">100 L</span>
+      </div>
+    </div>
+
+    <div class="pipe top-pipe"    id="topPipe"></div>
+    <div class="pipe right-pipe"  id="rightPipe"></div>
+    <div class="pipe bottom-pipe" id="bottomPipe"></div>
+    <div class="pipe left-pipe"   id="leftPipe"></div>
+
   </div>
-
-  <div class="pipe top-pipe" id="topPipe"></div>
-
-  <div class="component pump" id="pumpBox">
-    <div class="pump-spinner" id="pumpSpinner"></div>
-    <span class="pump-label">Pump</span>
-  </div>
-
-  <div class="pipe right-pipe" id="rightPipe"></div>
-  <div class="pipe bottom-pipe" id="bottomPipe"></div>
-  <div class="pipe left-pipe" id="leftPipe"></div>
-</div>
 
   <script src="script.js"></script>
 </body>

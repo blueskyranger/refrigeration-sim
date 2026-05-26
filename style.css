@@ -63,8 +63,8 @@ h1 {
 
 .system {
   position: relative;
-  width: 800px;
-  height: 400px;
+  width: 1000px;
+  height: 500px;
   margin: 0 auto;
   background: #243447;
   border: 1px solid #344f66;
@@ -84,70 +84,64 @@ h1 {
   text-align: center;
   font-weight: bold;
   font-size: 13px;
+  box-sizing: border-box;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* === Reservoir === */
-.reservoir {
-  width: 120px;
-  height: 160px;
-  left: 40px;
-  top: 110px;
-  flex-direction: column;
-  gap: 6px;
-  padding: 8px 6px;
-  box-sizing: border-box;
-  background: #1e3048;
-  border-color: #4a6278;
+.component-sublabel {
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #607d8b;
+  margin-top: 2px;
 }
 
-.reservoir-label {
+/* === Condenser (top-left) === */
+.condenser {
+  width: 140px;
+  height: 90px;
+  left: 40px;
+  top: 40px;
+  flex-direction: column;
+  gap: 3px;
+  background: #2d1a0a;
+  border-color: #bf360c;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.condenser.active {
+  background: #5d2006;
+  border-color: #f4511e;
+  box-shadow: 0 0 16px rgba(244, 81, 30, 0.5);
+}
+
+.condenser-label {
   font-size: 11px;
   font-weight: bold;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #90caf9;
+  color: #ff8a65;
 }
 
-.reservoir-tank {
-  position: relative;
-  width: 80px;
-  height: 100px;
-  border: 2px solid #4a6278;
-  border-radius: 4px 4px 6px 6px;
-  background: #182634;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.condenser.active .condenser-label {
+  color: #ffccbc;
 }
 
-.reservoir-fill {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, #0277bd, #29b6f6, #81d4fa);
-  height: 100%;
-  transition: height 0.8s ease;
+.condenser-icon {
+  font-size: 20px;
+  color: #e64a19;
 }
 
-#reservoirLevel {
-  position: relative;
-  z-index: 1;
-  font-size: 12px;
-  font-weight: bold;
-  color: #fff;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
-  font-family: monospace;
+.condenser.active .condenser-icon {
+  color: #ff7043;
 }
 
-/* === Pump === */
+/* === Compressor / Pump (top-right) === */
 .pump {
-  width: 110px;
+  width: 140px;
   height: 90px;
-  left: 620px;
-  top: 120px;
+  left: 820px;
+  top: 40px;
   flex-direction: column;
   gap: 4px;
   background: #263445;
@@ -190,6 +184,101 @@ h1 {
   to { transform: rotate(360deg); }
 }
 
+/* === Evaporator (bottom-right) === */
+.evaporator {
+  width: 140px;
+  height: 90px;
+  left: 820px;
+  top: 355px;
+  flex-direction: column;
+  gap: 3px;
+  background: #071a2a;
+  border-color: #01579b;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.evaporator.active {
+  background: #012a45;
+  border-color: #0288d1;
+  box-shadow: 0 0 16px rgba(2, 136, 209, 0.5);
+}
+
+.evaporator-label {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #4fc3f7;
+}
+
+.evaporator.active .evaporator-label {
+  color: #b3e5fc;
+}
+
+.evaporator-icon {
+  font-size: 20px;
+  color: #0288d1;
+}
+
+.evaporator.active .evaporator-icon {
+  color: #29b6f6;
+}
+
+/* === Reservoir (bottom-left) === */
+.reservoir {
+  width: 140px;
+  height: 140px;
+  left: 40px;
+  top: 330px;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 6px;
+  box-sizing: border-box;
+  background: #1e3048;
+  border-color: #4a6278;
+}
+
+.reservoir-label {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #90caf9;
+}
+
+.reservoir-tank {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border: 2px solid #4a6278;
+  border-radius: 4px 4px 6px 6px;
+  background: #182634;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reservoir-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, #0277bd, #29b6f6, #81d4fa);
+  height: 100%;
+  transition: height 0.8s ease;
+}
+
+#reservoirLevel {
+  position: relative;
+  z-index: 1;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  font-family: monospace;
+}
+
 /* === Pipes === */
 .pipe {
   position: absolute;
@@ -197,32 +286,36 @@ h1 {
   overflow: hidden;
 }
 
+/* top pipe: Compressor (right) → Condenser (left) */
 .top-pipe {
-  left: 160px;
-  top: 150px;
-  width: 460px;
+  left: 180px;
+  top: 75px;
+  width: 640px;
   height: 20px;
 }
 
+/* right pipe: Evaporator (bottom) → Compressor (top) */
 .right-pipe {
-  left: 667px;
-  top: 220px;
+  left: 880px;
+  top: 130px;
   width: 20px;
-  height: 110px;
+  height: 225px;
 }
 
+/* bottom pipe: Reservoir (left) → Evaporator (right) */
 .bottom-pipe {
-  left: 100px;
-  top: 310px;
-  width: 575px;
+  left: 180px;
+  top: 390px;
+  width: 640px;
   height: 20px;
 }
 
+/* left pipe: Condenser (top) → Reservoir (bottom) */
 .left-pipe {
-  left: 90px;
-  top: 270px;
+  left: 100px;
+  top: 130px;
   width: 20px;
-  height: 60px;
+  height: 200px;
 }
 
 /* === Flowing state === */
@@ -248,11 +341,11 @@ h1 {
   );
 }
 
-/* directional animations — each pipe gets the correct flow direction */
-.top-pipe.flowing    { animation: flowRight 0.6s linear infinite; }
-.bottom-pipe.flowing { animation: flowLeft  0.6s linear infinite; }
-.right-pipe.flowing  { animation: flowDown  0.6s linear infinite; }
-.left-pipe.flowing   { animation: flowUp    0.6s linear infinite; }
+/* directional animations matching actual flow direction */
+.top-pipe.flowing    { animation: flowLeft  0.6s linear infinite; }
+.bottom-pipe.flowing { animation: flowRight 0.6s linear infinite; }
+.right-pipe.flowing  { animation: flowUp    0.6s linear infinite; }
+.left-pipe.flowing   { animation: flowDown  0.6s linear infinite; }
 
 @keyframes flowRight { from { background-position: 0 0; } to { background-position:  24px 0; } }
 @keyframes flowLeft  { from { background-position: 0 0; } to { background-position: -24px 0; } }
@@ -273,18 +366,20 @@ h1 {
   border-bottom: 7px solid transparent;
 }
 
+/* top pipe flows LEFT ← */
 .top-pipe::after {
-  border-left: 11px solid rgba(255, 255, 255, 0.25);
-}
-.top-pipe.flowing::after {
-  border-left-color: rgba(255, 255, 255, 0.85);
-}
-
-.bottom-pipe::after {
   border-right: 11px solid rgba(255, 255, 255, 0.25);
 }
-.bottom-pipe.flowing::after {
+.top-pipe.flowing::after {
   border-right-color: rgba(255, 255, 255, 0.85);
+}
+
+/* bottom pipe flows RIGHT → */
+.bottom-pipe::after {
+  border-left: 11px solid rgba(255, 255, 255, 0.25);
+}
+.bottom-pipe.flowing::after {
+  border-left-color: rgba(255, 255, 255, 0.85);
 }
 
 .right-pipe::after,
@@ -300,16 +395,18 @@ h1 {
   border-right: 7px solid transparent;
 }
 
+/* right pipe flows UP ↑ */
 .right-pipe::after {
-  border-top: 11px solid rgba(255, 255, 255, 0.25);
-}
-.right-pipe.flowing::after {
-  border-top-color: rgba(255, 255, 255, 0.85);
-}
-
-.left-pipe::after {
   border-bottom: 11px solid rgba(255, 255, 255, 0.25);
 }
-.left-pipe.flowing::after {
+.right-pipe.flowing::after {
   border-bottom-color: rgba(255, 255, 255, 0.85);
+}
+
+/* left pipe flows DOWN ↓ */
+.left-pipe::after {
+  border-top: 11px solid rgba(255, 255, 255, 0.25);
+}
+.left-pipe.flowing::after {
+  border-top-color: rgba(255, 255, 255, 0.85);
 }
