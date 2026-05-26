@@ -4,7 +4,8 @@ const reservoirLevel = document.getElementById("reservoirLevel");
 const reservoirFill  = document.getElementById("reservoirFill");
 const pumpBox        = document.getElementById("pumpBox");
 const condenserBox   = document.getElementById("condenserBox");
-const evaporatorBox  = document.getElementById("evaporatorBox");
+const indoorUnitBox  = document.getElementById("indoorUnitBox");
+const coolAirZone    = document.getElementById("coolAirZone");
 
 const topPipe    = document.getElementById("topPipe");
 const rightPipe  = document.getElementById("rightPipe");
@@ -29,7 +30,8 @@ function setComponentsActive(on) {
   const method = on ? "add" : "remove";
   pumpBox.classList[method]("active");
   condenserBox.classList[method]("active");
-  evaporatorBox.classList[method]("active");
+  indoorUnitBox.classList[method]("active");
+  coolAirZone.classList[method]("active");
   togglePumpBtn.classList[method]("active");
 }
 
@@ -65,7 +67,7 @@ setInterval(() => {
       reservoir = 100;
     }
 
-    reservoirLevel.textContent    = `${reservoir} L`;
-    reservoirFill.style.height    = `${reservoir}%`;
+    reservoirLevel.textContent = `${reservoir} L`;
+    reservoirFill.style.height = `${reservoir}%`;
   }
 }, 1000);

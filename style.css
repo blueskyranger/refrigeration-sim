@@ -38,17 +38,9 @@ h1 {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
-#togglePump:hover {
-  background: #388e3c;
-}
-
-#togglePump.active {
-  background: #b71c1c;
-}
-
-#togglePump.active:hover {
-  background: #c62828;
-}
+#togglePump:hover   { background: #388e3c; }
+#togglePump.active  { background: #b71c1c; }
+#togglePump.active:hover { background: #c62828; }
 
 #flowDisplay {
   font-size: 14px;
@@ -96,7 +88,7 @@ h1 {
   margin-top: 2px;
 }
 
-/* === Condenser (top-left) === */
+/* ===================== Condenser (top-left) ===================== */
 .condenser {
   width: 140px;
   height: 90px;
@@ -122,21 +114,15 @@ h1 {
   text-transform: uppercase;
   color: #ff8a65;
 }
-
-.condenser.active .condenser-label {
-  color: #ffccbc;
-}
+.condenser.active .condenser-label { color: #ffccbc; }
 
 .condenser-icon {
   font-size: 20px;
   color: #e64a19;
 }
+.condenser.active .condenser-icon { color: #ff7043; }
 
-.condenser.active .condenser-icon {
-  color: #ff7043;
-}
-
-/* === Compressor / Pump (top-right) === */
+/* ===================== Compressor (top-right) ===================== */
 .pump {
   width: 140px;
   height: 90px;
@@ -161,10 +147,7 @@ h1 {
   text-transform: uppercase;
   color: #90caf9;
 }
-
-.pump.active .pump-label {
-  color: #ffab76;
-}
+.pump.active .pump-label { color: #ffab76; }
 
 .pump-spinner {
   width: 32px;
@@ -184,47 +167,90 @@ h1 {
   to { transform: rotate(360deg); }
 }
 
-/* === Evaporator (bottom-right) === */
-.evaporator {
-  width: 140px;
-  height: 90px;
-  left: 820px;
-  top: 355px;
+/* ===================== Indoor Unit / Fan Coil (bottom-right) ===================== */
+.indoor-unit {
+  width: 160px;
+  height: 175px;
+  left: 810px;
+  top: 285px;
   flex-direction: column;
-  gap: 3px;
+  gap: 5px;
   background: #071a2a;
   border-color: #01579b;
   transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
-.evaporator.active {
+.indoor-unit.active {
   background: #012a45;
   border-color: #0288d1;
-  box-shadow: 0 0 16px rgba(2, 136, 209, 0.5);
+  box-shadow: 0 0 20px rgba(2, 136, 209, 0.6);
 }
 
-.evaporator-label {
+.indoor-label {
   font-size: 11px;
   font-weight: bold;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #4fc3f7;
 }
+.indoor-unit.active .indoor-label { color: #b3e5fc; }
 
-.evaporator.active .evaporator-label {
-  color: #b3e5fc;
+.indoor-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
 }
 
-.evaporator-icon {
-  font-size: 20px;
+.coil-icon {
+  font-size: 26px;
   color: #0288d1;
 }
+.indoor-unit.active .coil-icon { color: #29b6f6; }
 
-.evaporator.active .evaporator-icon {
-  color: #29b6f6;
+/* Fan blade — spinning circle with two-colour border */
+.fan-blade {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.08);
+  border-top-color: #0277bd;
+  border-right-color: #0277bd;
 }
 
-/* === Reservoir (bottom-left) === */
+.indoor-unit.active .fan-blade {
+  border-color: rgba(2, 119, 189, 0.2);
+  border-top-color: #29b6f6;
+  border-right-color: #29b6f6;
+  animation: fanSpin 0.45s linear infinite;
+}
+
+@keyframes fanSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Airflow arrows inside the unit */
+.airflow-arrows {
+  display: none;
+  flex-direction: column;
+  gap: 1px;
+  font-size: 10px;
+  color: rgba(79, 195, 247, 0);
+  letter-spacing: 2px;
+}
+
+.indoor-unit.active .airflow-arrows {
+  display: flex;
+  color: rgba(79, 195, 247, 0.7);
+  animation: arrowPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes arrowPulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+
+/* ===================== Reservoir (bottom-left) ===================== */
 .reservoir {
   width: 140px;
   height: 140px;
@@ -279,14 +305,45 @@ h1 {
   font-family: monospace;
 }
 
-/* === Pipes === */
+/* ===================== Cool Air Zone ===================== */
+/* Animated cool-air stream flowing left out of the indoor unit */
+.cool-air-zone {
+  position: absolute;
+  left: 430px;
+  top: 290px;
+  width: 380px;
+  height: 170px;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 6px;
+  transition: opacity 0.6s ease;
+}
+
+.cool-air-zone.active {
+  opacity: 1;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 10px,
+    rgba(41, 182, 246, 0.10) 10px,
+    rgba(41, 182, 246, 0.10) 15px
+  );
+  animation: coolAirFlow 1s linear infinite;
+}
+
+@keyframes coolAirFlow {
+  from { background-position:   0 0; }
+  to   { background-position: -25px 0; }
+}
+
+/* ===================== Pipes ===================== */
 .pipe {
   position: absolute;
   background: #3d5166;
   overflow: hidden;
 }
 
-/* top pipe: Compressor (right) → Condenser (left) */
+/* Compressor (right) → Condenser (left)  :  flows LEFT */
 .top-pipe {
   left: 180px;
   top: 75px;
@@ -294,23 +351,23 @@ h1 {
   height: 20px;
 }
 
-/* right pipe: Evaporator (bottom) → Compressor (top) */
+/* Compressor bottom → Indoor Unit top  :  flows DOWN */
 .right-pipe {
   left: 880px;
   top: 130px;
   width: 20px;
-  height: 225px;
+  height: 155px;
 }
 
-/* bottom pipe: Reservoir (left) → Evaporator (right) */
+/* Reservoir (left) → Indoor Unit (right)  :  flows RIGHT */
 .bottom-pipe {
   left: 180px;
-  top: 390px;
-  width: 640px;
+  top: 385px;
+  width: 630px;
   height: 20px;
 }
 
-/* left pipe: Condenser (top) → Reservoir (bottom) */
+/* Condenser bottom → Reservoir top  :  flows DOWN */
 .left-pipe {
   left: 100px;
   top: 130px;
@@ -318,15 +375,13 @@ h1 {
   height: 200px;
 }
 
-/* === Flowing state === */
+/* ===================== Flowing gradients ===================== */
 .top-pipe.flowing,
 .bottom-pipe.flowing {
   background: repeating-linear-gradient(
     90deg,
-    #4fc3f7 0px,
-    #4fc3f7 12px,
-    #1e88e5 12px,
-    #1e88e5 24px
+    #4fc3f7 0px, #4fc3f7 12px,
+    #1e88e5 12px, #1e88e5 24px
   );
 }
 
@@ -334,17 +389,15 @@ h1 {
 .left-pipe.flowing {
   background: repeating-linear-gradient(
     180deg,
-    #4fc3f7 0px,
-    #4fc3f7 12px,
-    #1e88e5 12px,
-    #1e88e5 24px
+    #4fc3f7 0px, #4fc3f7 12px,
+    #1e88e5 12px, #1e88e5 24px
   );
 }
 
-/* directional animations matching actual flow direction */
+/* Directional animations */
 .top-pipe.flowing    { animation: flowLeft  0.6s linear infinite; }
 .bottom-pipe.flowing { animation: flowRight 0.6s linear infinite; }
-.right-pipe.flowing  { animation: flowUp    0.6s linear infinite; }
+.right-pipe.flowing  { animation: flowDown  0.6s linear infinite; }
 .left-pipe.flowing   { animation: flowDown  0.6s linear infinite; }
 
 @keyframes flowRight { from { background-position: 0 0; } to { background-position:  24px 0; } }
@@ -352,61 +405,41 @@ h1 {
 @keyframes flowDown  { from { background-position: 0 0; } to { background-position: 0  24px; } }
 @keyframes flowUp    { from { background-position: 0 0; } to { background-position: 0 -24px; } }
 
-/* === Direction arrows via ::after === */
+/* ===================== Direction arrows ===================== */
 .top-pipe::after,
 .bottom-pipe::after {
   content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 0;
-  height: 0;
+  width: 0; height: 0;
   border-top: 7px solid transparent;
   border-bottom: 7px solid transparent;
 }
 
 /* top pipe flows LEFT ← */
-.top-pipe::after {
-  border-right: 11px solid rgba(255, 255, 255, 0.25);
-}
-.top-pipe.flowing::after {
-  border-right-color: rgba(255, 255, 255, 0.85);
-}
+.top-pipe::after         { border-right: 11px solid rgba(255,255,255,0.25); }
+.top-pipe.flowing::after { border-right-color: rgba(255,255,255,0.85); }
 
 /* bottom pipe flows RIGHT → */
-.bottom-pipe::after {
-  border-left: 11px solid rgba(255, 255, 255, 0.25);
-}
-.bottom-pipe.flowing::after {
-  border-left-color: rgba(255, 255, 255, 0.85);
-}
+.bottom-pipe::after         { border-left: 11px solid rgba(255,255,255,0.25); }
+.bottom-pipe.flowing::after { border-left-color: rgba(255,255,255,0.85); }
 
 .right-pipe::after,
 .left-pipe::after {
   content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 0;
-  height: 0;
+  width: 0; height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
 }
 
-/* right pipe flows UP ↑ */
-.right-pipe::after {
-  border-bottom: 11px solid rgba(255, 255, 255, 0.25);
-}
-.right-pipe.flowing::after {
-  border-bottom-color: rgba(255, 255, 255, 0.85);
-}
+/* right pipe flows DOWN ↓ */
+.right-pipe::after         { border-top: 11px solid rgba(255,255,255,0.25); }
+.right-pipe.flowing::after { border-top-color: rgba(255,255,255,0.85); }
 
 /* left pipe flows DOWN ↓ */
-.left-pipe::after {
-  border-top: 11px solid rgba(255, 255, 255, 0.25);
-}
-.left-pipe.flowing::after {
-  border-top-color: rgba(255, 255, 255, 0.85);
-}
+.left-pipe::after         { border-top: 11px solid rgba(255,255,255,0.25); }
+.left-pipe.flowing::after { border-top-color: rgba(255,255,255,0.85); }

@@ -27,10 +27,18 @@
       <span class="pump-label">Compressor</span>
     </div>
 
-    <div class="component evaporator" id="evaporatorBox">
-      <span class="evaporator-label">Evaporator</span>
-      <div class="evaporator-icon">❄</div>
-      <span class="component-sublabel">Heat Absorption</span>
+    <div class="component indoor-unit" id="indoorUnitBox">
+      <span class="indoor-label">Indoor Unit</span>
+      <div class="indoor-icons">
+        <div class="coil-icon">❄</div>
+        <div class="fan-blade" id="fanBlade"></div>
+      </div>
+      <span class="component-sublabel">Fan Coil Unit</span>
+      <div class="airflow-arrows" id="airflowArrows">
+        <span>← ← ←</span>
+        <span>← ← ←</span>
+        <span>← ← ←</span>
+      </div>
     </div>
 
     <div class="component reservoir" id="reservoirBox">
@@ -40,6 +48,9 @@
         <span id="reservoirLevel">100 L</span>
       </div>
     </div>
+
+    <!-- Cool air stream that flows left from the indoor unit -->
+    <div class="cool-air-zone" id="coolAirZone"></div>
 
     <div class="pipe top-pipe"    id="topPipe"></div>
     <div class="pipe right-pipe"  id="rightPipe"></div>
