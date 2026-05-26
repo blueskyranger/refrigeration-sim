@@ -438,7 +438,7 @@ h1 {
   top: 75px;
   width: 640px;
   height: 20px;
-  background: #3d1010;
+  background: #4b0f0f;
 }
 
 /* Compressor bottom → Indoor Unit top  :  flows DOWN */
@@ -465,6 +465,7 @@ h1 {
   top: 130px;
   width: 20px;
   height: 200px;
+  background: #a1471e;
 }
 
 /* ===================== Flowing gradients ===================== */
@@ -472,8 +473,8 @@ h1 {
 .top-pipe.flowing {
   background: repeating-linear-gradient(
     90deg,
-    #ef5350 0px, #ef5350 12px,
-    #b71c1c 12px, #b71c1c 24px
+    #fd3431 0px, #ee3b38 12px,
+    #b71c1c 12px, #fa1a1a 24px
   );
 }
 
@@ -486,12 +487,19 @@ h1 {
   );
 }
 
-.right-pipe.flowing,
+.right-pipe.flowing{
+  background: repeating-linear-gradient(
+    180deg,
+    #1f34f0 0px, #0643eb 12px,
+    #0717f1 12px, #052fee 24px
+  );
+}
+
 .left-pipe.flowing {
   background: repeating-linear-gradient(
     180deg,
-    #4fc3f7 0px, #4fc3f7 12px,
-    #1e88e5 12px, #1e88e5 24px
+    #fa8642 0px, #ec7e34 12px,
+    #eb770b 12px, #e26702 24px
   );
 }
 
