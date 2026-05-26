@@ -205,24 +205,24 @@ h1 {
 }
 
 .right-pipe {
-  left: 620px;
+  left: 665px;
   top: 210px;
   width: 20px;
-  height: 40px;
+  height: 120px;
 }
 
 .bottom-pipe {
-  left: 160px;
-  top: 250px;
-  width: 460px;
+  left: 100px;
+  top: 310px;
+  width: 575px;
   height: 20px;
 }
 
 .left-pipe {
-  left: 160px;
-  top: 170px;
+  left: 90px;
+  top: 270px;
   width: 20px;
-  height: 80px;
+  height: 60px;
 }
 
 /* === Flowing state === */
